@@ -1,0 +1,263 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 534500492553488,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "v1-5-pruned-emaonly-fp16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "categories": "sofa, rug, coffe table, painiting, art work lamp",
+      "confidence_threshold": 0.10000000000000002,
+      "iou_threshold": 0.10000000000000002,
+      "box_thickness": 2,
+      "text_thickness": 2,
+      "text_scale": 1,
+      "with_confidence": true,
+      "with_class_agnostic_nms": false,
+      "with_segmentation": true,
+      "mask_combined": true,
+      "mask_extracted": true,
+      "mask_extracted_index": 0,
+      "yolo_world_model": [
+        "12",
+        0
+      ],
+      "esam_model": [
+        "13",
+        0
+      ],
+      "image": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "Yoloworld_ESAM_Zho",
+    "_meta": {
+      "title": "🔎Yoloworld ESAM"
+    }
+  },
+  "12": {
+    "inputs": {
+      "yolo_world_model": "yolo_world/l"
+    },
+    "class_type": "Yoloworld_ModelLoader_Zho",
+    "_meta": {
+      "title": "🔎Yoloworld Model Loader"
+    }
+  },
+  "13": {
+    "inputs": {
+      "device": "CUDA"
+    },
+    "class_type": "ESAM_ModelLoader_Zho",
+    "_meta": {
+      "title": "🔎ESAM Model Loader"
+    }
+  },
+  "14": {
+    "inputs": {
+      "urls": "https://b80hvheqdkqojz1r.public.blob.vercel-storage.com/before-and-after-v0-osuu2jb73nse1-x3t2jew6yELoY3vO1j1R0NU9XMOWxw.webp"
+    },
+    "class_type": "LoadImageFromURL",
+    "_meta": {
+      "title": "Load Image From Url"
+    }
+  },
+  "16": {
+    "inputs": {
+      "text": [
+        "10",
+        2
+      ],
+      "path": "output",
+      "filename_prefix": "ComfyUI",
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "file_extension": ".txt",
+      "encoding": "utf-8",
+      "filename_suffix": ""
+    },
+    "class_type": "Save Text File",
+    "_meta": {
+      "title": "Save Text File"
+    }
+  },
+  "17": {
+    "inputs": {
+      "urls": "https://pub-7d87a7331d8b474b970cfa096f4e3c0d.r2.dev/47763942-3f49-471d-a131-510aa9556e56.jpeg"
+    },
+    "class_type": "LoadImageFromURL",
+    "_meta": {
+      "title": "Load Image From Url"
+    }
+  },
+  "18": {
+    "inputs": {
+      "categories": "person, bicycle, car, motorcycle, airplane, bus, train, truck, boat",
+      "confidence_threshold": 0.1,
+      "iou_threshold": 0.1,
+      "box_thickness": 2,
+      "text_thickness": 2,
+      "text_scale": 1,
+      "with_confidence": true,
+      "with_class_agnostic_nms": false,
+      "with_segmentation": true,
+      "mask_combined": true,
+      "mask_extracted": true,
+      "mask_extracted_index": 0,
+      "yolo_world_model": [
+        "19",
+        0
+      ],
+      "esam_model": [
+        "20",
+        0
+      ],
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "Yoloworld_ESAM_Zho",
+    "_meta": {
+      "title": "🔎Yoloworld ESAM"
+    }
+  },
+  "19": {
+    "inputs": {
+      "yolo_world_model": "yolo_world/l"
+    },
+    "class_type": "Yoloworld_ModelLoader_Zho",
+    "_meta": {
+      "title": "🔎Yoloworld Model Loader"
+    }
+  },
+  "20": {
+    "inputs": {
+      "device": "CUDA"
+    },
+    "class_type": "ESAM_ModelLoader_Zho",
+    "_meta": {
+      "title": "🔎ESAM Model Loader"
+    }
+  },
+  "21": {
+    "inputs": {
+      "text": [
+        "18",
+        2
+      ],
+      "path": "output",
+      "filename_prefix": "ComfyUI",
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "file_extension": ".txt",
+      "encoding": "utf-8",
+      "filename_suffix": ""
+    },
+    "class_type": "Save Text File",
+    "_meta": {
+      "title": "Save Text File"
+    }
+  }
+}
